@@ -1,10 +1,15 @@
 import React from 'react';
-import { Box } from 'native-base';
+import { Box,StatusBar,Text } from 'native-base';
+import NavBar from "../../lib/components/Navbar";
+
 
 export default function Home() {
     return (
         <Box>
-            <Text>Home</Text>
+            <StatusBar barStyle="dark-content" />
+            <NavBar/>
+            <Text>Ini adalah halaman Rumah</Text>
+            
         </Box>
     )
 }

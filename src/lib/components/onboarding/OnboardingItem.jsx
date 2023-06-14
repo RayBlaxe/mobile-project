@@ -24,7 +24,6 @@ const OnboardingItem = ({ item }) => {
           h="150"
           source={require("../../../../assets/images/onboarding/c4c-logo.png")}
           alt="gambar sungai"
-          alignItems
         />
 
         {/* <Text color="#4c892c" mt="-2" textAlign="center">

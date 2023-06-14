@@ -36,8 +36,8 @@ export default function App() {
       {/* Box ini */}
 
       {/* <EmailVerificationScreen /> */}
-      <Onboarding />
-      {/* <Home /> */}
+      {/* <Onboarding /> */}
+      <Home />
       {/* Sampai Sini */}
     </NativeBaseProvider>
   )
