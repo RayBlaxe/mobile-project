@@ -1,12 +1,21 @@
-import React from 'react';
-import { Box, Text, HStack, StatusBar, IconButton } from 'native-base';
-import { MaterialIcons } from '@expo/vector-icons';
+import React from "react";
+import {
+  Box,
+  Text,
+  HStack,
+  StatusBar,
+  IconButton,
+  useBreakpointValue,
+  Avatar,
+} from "native-base";
+import { MaterialIcons } from "@expo/vector-icons";
 
 function NavBar() {
+  const maxW = useBreakpointValue({ base: "100%", md: "350" }); // Adjust the breakpoint as needed
+
   return (
     <>
       <StatusBar bg="#3700B3" barStyle="light-content" />
-      <Box safeAreaTop bg="green.400" />
       <Box
         bg="green.800"
         px="1"
@@ -14,7 +23,7 @@ function NavBar() {
         justifyContent="space-between"
         alignItems="center"
         w="100%"
-        maxW="350"
+        maxW={maxW}
         display="flex"
         flexDirection="row"
       >
@@ -28,14 +37,10 @@ function NavBar() {
         </HStack>
         <HStack>
           <IconButton
-            icon={<MaterialIcons name="favorite" size={24} color="white" />}
+            icon={<MaterialIcons name="notifications" size={24} color="white" />}
           />
-          <IconButton
-            icon={<MaterialIcons name="search" size={24} color="white" />}
-          />
-          <IconButton
-            icon={<MaterialIcons name="more-vert" size={24} color="white" />}
-          />
+                    
+          <Avatar source={require("../../../assets/images/home/rachel.png")}/>
         </HStack>
       </Box>
     </>
