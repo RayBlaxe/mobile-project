@@ -17,7 +17,7 @@ function NavBar() {
     <>
       <StatusBar bg="#3700B3" barStyle="light-content" />
       <Box
-        bg="green.800"
+        
         px="1"
         py="3"
         justifyContent="space-between"

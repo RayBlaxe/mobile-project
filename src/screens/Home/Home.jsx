@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, StatusBar, Text, HStack, Button, Spacer } from "native-base";
+import { Box, StatusBar, Text, HStack, Button, Spacer,Avatar,Center,VStack } from "native-base";
 import NavBar from "../../lib/components/Navbar";
 import HalfButton from "../../lib/components/Home/HalfButton";
 
@@ -10,6 +10,24 @@ export default function Home() {
       <StatusBar barStyle="dark-content" />
       <NavBar />
       <Box mx={6}>
+      <HStack alignItems="center" space={2}>
+      <Avatar source={require("../../../assets/images/home/rachel.png")}/>
+              <Center ml="2">
+                <VStack>
+                  <Text
+                    fontSize="16"
+                    color="gray.900"
+                    fontFamily="Poppins-Bold"
+                  >
+                    Hanna Junnita
+                  </Text>
+                  <Text fontFamily="Poppins" color="gray.400">
+                    Selamat datang kembalia
+                  </Text>
+                </VStack>
+              </Center>
+            </HStack>
+
         <HStack
           mb="2.5"
           mt="1.5"

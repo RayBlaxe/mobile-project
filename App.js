@@ -8,6 +8,7 @@ import { Container, Header, Content, Footer, FooterTab, Button, Icon } from 'nat
 import Onboarding from "./src/screens/Onboarding/OnboardingScreen"
 import Home from "./src/screens/Home/Home"
 import Login from "./src/screens/LoginRegister/Login"
+import Register from "./src/screens/LoginRegister/Register"
 
 export default function App() {
   return (
@@ -38,8 +39,9 @@ export default function App() {
 
       {/* <EmailVerificationScreen /> */}
       {/* <Onboarding /> */}
-      <Home />
+      {/* <Home /> */}
       {/* <Login /> */}
+      <Register />
       {/* Sampai Sini */}
     </NativeBaseProvider>
   )
