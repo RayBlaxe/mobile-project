@@ -39,9 +39,9 @@ export default function App() {
 
       {/* <EmailVerificationScreen /> */}
       {/* <Onboarding /> */}
-      {/* <Home /> */}
+      <Home />
       {/* <Login /> */}
-      <Register />
+      {/* <Register /> */}
       {/* Sampai Sini */}
     </NativeBaseProvider>
   )
