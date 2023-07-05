@@ -15,27 +15,87 @@ import {
 } from "native-base";
 import NavBar from "../../lib/components/Navbar";
 import HalfButton from "../../lib/components/Home/HalfButton";
+import {
+  Alert,
+  BackHandler,
+  StatusBar as RNStatusBar,
+  TouchableOpacity,
+} from "react-native";
+
+const statusBarHeight = RNStatusBar.currentHeight;
 
 export default function Home() {
   return (
     <Box>
       <StatusBar barStyle="dark-content" />
+      <Box
+        bgColor={"white"}
+        width={"100%"}
+        rounded="3xl"
+        shadow={"5"}
+        style={{ paddingTop: statusBarHeight + 4 }}
+        mt="-12"
+        pb={2}
+      >
+        <HStack ml={5} mr={5} justifyContent="space-between">
+          <HStack>
+            <Image
+              source={require("../../../assets/icon.png")}
+              size={20}
+              alt="Bantu Guru Logo"
+            />
+            <Center ml="2">
+              <VStack>
+                <Text fontSize="12" color="gray.400">
+                  Halo
+                </Text>
+                <Text fontSize={20}>Hanna Junita</Text>
+              </VStack>
+            </Center>
+          </HStack>
+
+          <HStack alignItems="center">
+            <Pressable
+              position="relative"
+              justifyContent="center"
+              _pressed={{ opacity: 0.5 }}
+              mr={4}
+            >
+              <Box
+                zIndex="1"
+                position="absolute"
+                top="0"
+                right="0"
+                w="4"
+                h="4"
+                bg="purple.600"
+                justifyContent="center"
+                alignItems="center"
+                rounded="full"
+              >
+                <Text fontSize="10" color="white">
+                  1
+                </Text>
+              </Box>
+              <Image
+                w="12"
+                h="12"
+                source={require("../../../assets/icons/Bell.png")}
+                alt="gambar sungai"
+              />
+            </Pressable>
+
+            <TouchableOpacity onPress={() => navigation.navigate("profile")}>
+              <Avatar
+                source={require("../../../assets/images/home/rachel.png")}
+              />
+            </TouchableOpacity>
+          </HStack>
+        </HStack>
+      </Box>
+
       <NavBar />
       <Box mx={6}>
-        <HStack alignItems="center" space={2}>
-          <Avatar source={require("../../../assets/images/home/rachel.png")} />
-          <Center ml="2">
-            <VStack>
-              <Text fontSize="30" color="gray.900" fontFamily="Poppins-Bold">
-                Hanna Junnita
-              </Text>
-              <Text fontFamily="Poppins" color="gray.400">
-                Mitra
-              </Text>
-            </VStack>
-          </Center>
-        </HStack>
-
         <VStack>
           <HStack
             mb="2.5"
@@ -69,8 +129,8 @@ export default function Home() {
                 </Text>
               </Box>
               <Image
-                w="16"
-                h="16"
+                w="12"
+                h="12"
                 source={require("../../../assets/images/home/sampah.png")}
                 alt="gambar sungai"
               />
@@ -80,10 +140,11 @@ export default function Home() {
               justifyContent="center"
               _pressed={{ opacity: 0.5 }}
               mr={4}
+              bgColor={"gray.500"}
             >
               <Image
-                w="16"
-                h="16"
+                w="12"
+                h="12"
                 source={require("../../../assets/images/home/history.png")}
                 alt="gambar sungai"
               />
@@ -105,8 +166,8 @@ export default function Home() {
               mr={4}
             >
               <Image
-                w="16"
-                h="16"
+                w="12"
+                h="12"
                 source={require("../../../assets/images/home/user.png")}
                 alt="gambar sungai"
               />
@@ -118,15 +179,15 @@ export default function Home() {
               mr={4}
             >
               <Image
-                w="16"
-                h="16"
+                w="12"
+                h="12"
                 source={require("../../../assets/images/home/history.png")}
                 alt="gambar sungai"
               />
             </Pressable>
           </HStack>
         </VStack>
-      </Box>  
+      </Box>
     </Box>
   );
 }
