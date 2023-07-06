@@ -6,7 +6,9 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Container, Header, Content, Footer, FooterTab, Button, Icon } from 'native-base';
 
 import Onboarding from "./src/screens/Onboarding/OnboardingScreen"
-import Home from "./src/screens/Home/Home"
+import HomeMitra from "./src/screens/Home/HomeMitra"
+import HomeUser from "./src/screens/Home/HomeUser"
+import HomeMitra from "./src/screens/Home/HomeMitra"
 import Login from "./src/screens/LoginRegister/Login"
 import Register from "./src/screens/LoginRegister/Register"
 
@@ -39,7 +41,8 @@ export default function App() {
 
       {/* <EmailVerificationScreen /> */}
       {/* <Onboarding /> */}
-      <Home />
+      {/* <HomeMitra /> */}
+      <HomeUser />
       {/* <Login /> */}
       {/* <Register /> */}
       {/* Sampai Sini */}
