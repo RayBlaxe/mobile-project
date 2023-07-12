@@ -8,7 +8,7 @@ import { Container, Header, Content, Footer, FooterTab, Button, Icon } from 'nat
 import Onboarding from "./src/screens/Onboarding/OnboardingScreen"
 import HomeMitra from "./src/screens/Home/HomeMitra"
 import HomeUser from "./src/screens/Home/HomeUser"
-import HomeMitra from "./src/screens/Home/HomeMitra"
+import HomeAdmin from "./src/screens/Home/HomeAdmin"
 import Login from "./src/screens/LoginRegister/Login"
 import Register from "./src/screens/LoginRegister/Register"
 
@@ -42,7 +42,7 @@ export default function App() {
       {/* <EmailVerificationScreen /> */}
       {/* <Onboarding /> */}
       {/* <HomeMitra /> */}
-      <HomeUser />
+      {/* <HomeUser /> */}
       {/* <Login /> */}
       {/* <Register /> */}
       {/* Sampai Sini */}

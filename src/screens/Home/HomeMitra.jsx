@@ -24,35 +24,35 @@ import {
 } from "react-native";
 
 const statusBarHeight = RNStatusBar.currentHeight;
-const styles = StyleSheet.create({
-  NavContainer: {
-    position: "absolute",
-    alignItems: "center",
-    bottom: 20,
-  },
-  NavBar: {
-    flexDirection: "row",
-    justifyContent: "space-evenly",
-    width: "90%",
-    backgroundColor: "white",
-    borderRadius: 25,
-  },
-  IconBehave: {
-    padding: 10,
-  },
-});
+// const styles = StyleSheet.create({
+//   NavContainer: {
+//     position: "absolute",
+//     alignItems: "center",
+//     bottom: 20,
+//   },
+//   NavBar: {
+//     flexDirection: "row",
+//     justifyContent: "space-evenly",
+//     width: "90%",
+//     backgroundColor: "white",
+//     borderRadius: 25,
+//   },
+//   IconBehave: {
+//     padding: 10,
+//   },
+// });
 
 export default function Home() {
   return (
     <Box backgroundColor={"green.900"}>
       <StatusBar barStyle="dark-content" />
-      <View style={styles.NavContainer}>
+      {/* <View style={styles.NavContainer}>
         <View style={styles.NavBar}>
           <Pressable onPress={() => navigation.navigate("home")} style={styles.IconBehave}>
 
           </Pressable>
         </View>
-      </View>
+      </View> */}
       <Box
         bgColor={"white"}
         width={"100%"}
@@ -60,14 +60,14 @@ export default function Home() {
         shadow={"5"}
         style={{ paddingTop: statusBarHeight + 4 }}
         mt="-12"
-        pb={2}
+        // pb={2}
       >
         <HStack ml={5} mr={5} justifyContent="space-between">
           <HStack>
             <Image
               source={require("../../../assets/images/c4c-logo.png")}
               size={20}
-              alt="Bantu Guru Logo"
+              alt="c4c logo"
             />
             <Center ml="2">
               <VStack>
