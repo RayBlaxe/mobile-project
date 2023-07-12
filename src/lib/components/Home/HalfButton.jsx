@@ -11,7 +11,7 @@ const OutlineButton = ({ children, onPress }) => {
         // paddingVertical: 12,
         alignSelf: "center",
 
-        backgroundColor: "#6fa956",
+        backgroundColor: "#007a00",
         paddingVertical: 15,
         borderRadius: 17,
         alignItems: "center",
