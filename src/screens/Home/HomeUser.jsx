@@ -4,7 +4,7 @@ import {
   StatusBar,
   Text,
   HStack,
-  Button,
+  ScrollView,
   Spacer,
   Avatar,
   Center,
@@ -16,12 +16,16 @@ import {
 } from "native-base";
 import NavBar from "../../lib/components/Navbar";
 import TabBar from "../../lib/components/TabBar";
+import HalfButton from "../../lib/components/Home/HalfButton";
 import {
   Alert,
   BackHandler,
+  Dimensions,
   StatusBar as RNStatusBar,
   TouchableOpacity,
 } from "react-native";
+const windowWidth = Dimensions.get("window").width
+
 
 const statusBarHeight = RNStatusBar.currentHeight;
 // const styles = StyleSheet.create({
@@ -72,9 +76,9 @@ export default function Home() {
             <Center ml="2">
               <VStack>
                 <Text fontSize="12" color="gray.400">
-                  Halo
+                  Selamat datang
                 </Text>
-                <Text fontSize={20}>Hanna Junita</Text>
+                <Text fontSize={20} bold>Mahmudin</Text>
               </VStack>
             </Center>
           </HStack>
@@ -121,141 +125,84 @@ export default function Home() {
       <Box backgroundColor={"white"} mt={12} rounded={"3xl"}>
         <Box ml={"4"} mt={2}>
           <Text fontSize={"24"} bold>
-            Kategori
+            Beranda
           </Text>
         </Box>
+        <ScrollView
+        horizontal
+        scrollEventThrottle={32}
+        pagingEnabled
+        mt={2}
+        style={{ overflow: "visible" }}
+        showsHorizontalScrollIndicator={false}
+      >
+        <Box style={{ width: windowWidth }} px={6} py={4}>
+          <Box bg="white" p={4} rounded="2xl" shadow={3}>
+            <HStack>
+              <Image
+                rounded="lg"
+                size={16}
+                source={require("../../../assets/images/onboarding/1.jpg")}
+                alt="Tahun 2020 Adalah Tahun Penuh Tantangan"
+              />
+              <Box justifyContent="center" ml={4}>
+                <Text
+                  fontSize={16}
+                  fontWeight="semibold"
+                  color="gray.900"
+                  letterSpacing={0.5}
+                >
+                  Tahun 2020 Adalah Tahun Penuh Tantangan
+                </Text>
+                <Text mt={1} color="gray.500" fontSize={12}>
+                 Junaedi
+                </Text>
+              </Box>
+            </HStack>
+            <Text mt={3}>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente
+              atque est ipsa, cumque quasi unde.
+            </Text>
+          </Box>
+        </Box>
+
+        <Box
+          style={{ width: windowWidth, height: 180 }}
+          px={6}
+          py={2}
+          justifyContent="center"
+        >
+          <Image
+                source={require("../../../assets/images/onboarding/1.jpg")}
+                resizeMode="contain"
+            w="full"
+            flex={1}
+          />
+        </Box>
+      </ScrollView>
+
         <Box mx={6}>
-          <VStack>
-            <HStack
-              mb="2.5"
-              mt="1.5"
-              space={2}
-              mx={{
-                base: "auto",
-                md: "0",
-              }}
-            >
-              <Pressable
-                position="relative"
-                bgColor={"gray.400"}
-                rounded={"md"}
-                justifyContent="center"
-                _pressed={{ opacity: 0.5 }}
-                mr={4}
-                w={"140px"}
-                h={"140px"}
-              >
-                <VStack ml={4} justifyContent={"flex-end"}>
-                  <Image
-                    w="30%"
-                    h="45%"
-                    source={require("../../../assets/icons/sampah.png")}
-                    alt="gambar sungai"
-                  />
-                  <Text fontSize="20" color="black" bold mt="2">
-                    Sampah
-                  </Text>
-                </VStack>
-              </Pressable>
-              <Pressable
-                position="relative"
-                bgColor={"gray.400"}
-                rounded={"md"}
-                justifyContent="center"
-                _pressed={{ opacity: 0.5 }}
-                mr={4}
-                w={"140px"}
-                h={"140px"}
-              >
-                <VStack ml={4} justifyContent={"flex-end"}>
-                  <Image
-                    w="40%"
-                    h="45%"
-                    source={require("../../../assets/icons/user.png")}
-                    alt="gambar sungai"
-                  />
-                  <Text fontSize="20" color="black" bold mt="2">
-                    Profil
-                  </Text>
-                </VStack>
-              </Pressable>
-            </HStack>
-            <HStack
-              mb="2.5"
-              mt="1.5"
-              space={2}
-              mx={{
-                base: "auto",
-                md: "0",
-              }}
-            >
-              <Pressable
-                position="relative"
-                bgColor={"gray.400"}
-                rounded={"md"}
-                justifyContent="center"
-                _pressed={{ opacity: 0.5 }}
-                mr={4}
-                w={"140px"}
-                h={"140px"}
-              >
-                <VStack ml={4} justifyContent={"flex-end"}>
-                  <Image
-                    w="40%"
-                    h="45%"
-                    source={require("../../../assets/icons/Settings.png")}
-                    alt="gambar sungai"
-                  />
-                  <Text fontSize="20" color="black" bold mt="2">
-                    Pengaturan
-                  </Text>
-                </VStack>
-              </Pressable>
-              <Pressable
-                position="relative"
-                bgColor={"gray.400"}
-                rounded={"md"}
-                justifyContent="center"
-                _pressed={{ opacity: 0.5 }}
-                mr={4}
-                w={"140px"}
-                h={"140px"}
-              >
-                <VStack ml={4} justifyContent={"flex-end"}>
-                  <Image
-                    w="40%"
-                    h="45%"
-                    source={require("../../../assets/icons/history.png")}
-                    alt="gambar sungai"
-                  />
-                  <Text fontSize="20" color="black" bold mt="2">
-                    Riwayat
-                  </Text>
-                </VStack>
-              </Pressable>
-            </HStack>
-          </VStack>
+          <HStack>
+            <HalfButton>Join a Challenge</HalfButton>
+            <Spacer/>
+            <HalfButton>Join a Challenge</HalfButton>
+                
+          </HStack>
         </Box>
         <Box mx={"4"} mt={2}>
           <Text fontSize={"24"} bold>
-            Dashboard
+            Daily Login
           </Text>
           <Box alignItems={"center"} mt={4}>
             <Box
-              bgColor={"white"}
+              bgColor={"green.700"}
               shadow={"3"}
               w={80}
               h={"64"}
               alignItems={"center"}
+              rounded={"lg"}
             >
-              <HStack alignItems={"flex-end"} space={10}>
-                <Box h={48} w={4} bgColor={"gray.600"} rounded={"lg"}></Box>
-                <Box h={20} w={4} bgColor={"gray.600"} rounded={"lg"}></Box>
-                <Box h={16} w={4} bgColor={"gray.600"} rounded={"lg"}></Box>
-                <Box h={32} w={4} bgColor={"gray.600"} rounded={"lg"}></Box>
-                <Box h={36} w={4} bgColor={"gray.600"} rounded={"lg"}></Box>
-                <Box h={24} w={4} bgColor={"gray.600"} rounded={"lg"}></Box>
-              </HStack>
+              
             </Box>
           </Box>
         </Box>
