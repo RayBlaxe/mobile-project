@@ -42,7 +42,8 @@ export default function App() {
       {/* <EmailVerificationScreen /> */}
       {/* <Onboarding /> */}
       {/* <HomeMitra /> */}
-      <HomeUser />
+      <HomeAdmin />
+      {/* <HomeUser /> */}
       {/* <Login /> */}
       {/* <Register /> */}
       {/* Sampai Sini */}
