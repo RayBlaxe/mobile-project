@@ -11,6 +11,7 @@ import HomeUser from "./src/screens/Home/HomeUser"
 import HomeAdmin from "./src/screens/Home/HomeAdmin"
 import Login from "./src/screens/LoginRegister/Login"
 import Register from "./src/screens/LoginRegister/Register"
+import PilihTantangan from "./src/screens/User/Tantangan/PilihTantangan"
 
 export default function App() {
   return (
@@ -42,8 +43,9 @@ export default function App() {
       {/* <EmailVerificationScreen /> */}
       {/* <Onboarding /> */}
       {/* <HomeMitra /> */}
-      <HomeAdmin />
+      {/* <HomeAdmin /> */}
       {/* <HomeUser /> */}
+      <PilihTantangan/>
       {/* <Login /> */}
       {/* <Register /> */}
       {/* Sampai Sini */}

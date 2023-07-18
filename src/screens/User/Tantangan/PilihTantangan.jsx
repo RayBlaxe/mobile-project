@@ -14,8 +14,8 @@ import {
   Image,
   View,
 } from "native-base";
-import NavBar from "../../lib/components/Navbar";
-import TabBar from "../../lib/components/TabBar";
+import NavBar from "../../../lib/components/Navbar";
+import TabBar from "../../../lib/components/TabBar";
 import {
   Alert,
   BackHandler,
@@ -53,76 +53,7 @@ export default function Home() {
           </Pressable>
         </View>
       </View> */}
-      <Box
-        bgColor={"white"}
-        width={"100%"}
-        rounded="3xl"
-        shadow={"5"}
-        style={{ paddingTop: statusBarHeight + 4 }}
-        mt="-12"
-        // pb={2}
-      >
-        <HStack ml={5} mr={5} justifyContent="space-between">
-          <HStack>
-            <Image
-              source={require("../../../assets/images/c4c-logo.png")}   
-              size={20}
-              alt="c4c logo"
-            />
-            <Center ml="2">
-              <VStack>
-                <Text fontSize="12" color="gray.400">
-                  Selamat Datang kembali
-                </Text>
-                <Text bold fontSize={20}>
-                  Udin Mah
-                </Text>
-                <Text mt={"-2"} fontSize="12" color="gray.400">
-                  Admin
-                </Text>
-              </VStack>
-            </Center>
-          </HStack>
-
-          <HStack alignItems="center">
-            <Pressable
-              position="relative"
-              justifyContent="center"
-              _pressed={{ opacity: 0.5 }}
-              mr={4}
-            >
-              <Box
-                zIndex="1"
-                position="absolute"
-                top="0"
-                right="0"
-                w="4"
-                h="4"
-                bg="green.600"
-                justifyContent="center"
-                alignItems="center"
-                rounded="full"
-              >
-                <Text fontSize="10" color="white">
-                  1
-                </Text>
-              </Box>
-              <Image
-                w="8"
-                h="8"
-                source={require("../../../assets/icons/Bell.png")}
-                alt="gambar sungai"
-              />
-            </Pressable>
-
-            <TouchableOpacity onPress={() => navigation.navigate("profile")}>
-              <Avatar
-                source={require("../../../assets/images/home/rachel.png")} alt="Gambar"
-              />
-            </TouchableOpacity>
-          </HStack>
-        </HStack>
-      </Box>
+     
       <Box backgroundColor={"white"} mt={"20"} rounded={"3xl"} h={"full"}>
         <Box ml={"4"} mt={2}>
           <Text fontSize={"24"} bold>
@@ -143,7 +74,8 @@ export default function Home() {
                 <HStack space={4} alignItems={"center"} ml={4} h={"full"}>
                   <Box>
                     <Image
-                      source={require("../../../assets/icons/groups.png")} alt="Gambar"
+                      source={require("../../../../assets/icons/groups.png")}
+                      alt="Gambar"
                     />
                   </Box>
                   <Center h={"full"} flex={"1"}>
@@ -165,7 +97,10 @@ export default function Home() {
               >
                 <HStack space={4} alignItems={"center"} ml={4} h={"full"}>
                   <Box>
-                    <Image source={require("../../../assets/icons/work.png")} alt="Gambar"/>
+                    <Image
+                      source={require("../../../../assets/icons/work.png")}
+                      alt="Gambar"
+                    />
                   </Box>
                   <Center h={"full"} flex={"1"}>
                     <Text fontSize={"16"} bold>
@@ -186,7 +121,10 @@ export default function Home() {
               >
                 <HStack space={4} alignItems={"center"} ml={4} h={"full"}>
                   <Box>
-                    <Image source={require("../../../assets/icons/maps.png")} alt="Gambar"/>
+                    <Image
+                      source={require("../../../../assets/icons/maps.png")}
+                      alt="Gambar"
+                    />
                   </Box>
                   <Center h={"full"} flex={"1"}>
                     <Text fontSize={"16"} bold>
@@ -208,7 +146,8 @@ export default function Home() {
                 <HStack space={4} alignItems={"center"} ml={4} h={"full"}>
                   <Box>
                     <Image
-                      source={require("../../../assets/icons/recycle.png")} alt="Gambar"
+                      source={require("../../../../assets/icons/recycle.png")}
+                      alt="Gambar"
                     />
                   </Box>
                   <Center h={"full"} flex={"1"}>
@@ -230,7 +169,10 @@ export default function Home() {
               >
                 <HStack space={4} alignItems={"center"} ml={4} h={"full"}>
                   <Box>
-                    <Image source={require("../../../assets/icons/news.png")} alt="Gambar" />
+                    <Image
+                      source={require("../../../../assets/icons/news.png")}
+                      alt="Gambar"
+                    />
                   </Box>
                   <Center h={"full"} flex={"1"}>
                     <Text fontSize={"16"} bold>
