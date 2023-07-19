@@ -49,7 +49,7 @@ const statusBarHeight = RNStatusBar.currentHeight;
 //   },
 // });
 
-export default function TabelMitra() {
+export default function TabelReward() {
   return (
     <Box backgroundColor={"green.900"} flex={"1"}>
       <StatusBar barStyle="dark-content" />
@@ -73,7 +73,7 @@ export default function TabelMitra() {
           </Box>
           <Spacer />
           <Text bold fontSize={"20"} color={"white"}>
-            Data Mitra
+            Data Reward
           </Text>
           <Spacer />
           <Pressable _pressed={{ opacity: 0.5 }}>

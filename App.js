@@ -19,7 +19,7 @@ import Validasi from "./src/screens/Admin/Validasi/DetailValidasi"
 import AdminUser from "./src/screens/Admin/User/TabelUser"
 import AdminBerita from "./src/screens/Admin/Berita/TabelBerita"
 import AdminMitra from "./src/screens/Admin/Mitra/TabelMitra"
-import AdminTantangan from "./src/screens/Admin/Tantangan/TabelTantangan"
+import AdminTantangan from "./src/screens/Admin/Tantangan/TambahTantangan"
 
 export default function App() {
   return (
@@ -57,8 +57,9 @@ export default function App() {
       {/* <Tantangan/> */}
       {/* <Berita/> */}
       {/* <Reward/> */}
-      <AdminUser/>
-      {/* <Validasi/> */}
+      {/* <AdminUser/> */}
+      {/* <AdminTantangan/> */}
+      <Validasi/>
       {/* <Login /> */}
       {/* <Register /> */}
       {/* Sampai Sini */}

@@ -116,6 +116,11 @@ export default function TabelUser() {
 
                 <Box flex={"1"} alignItems={"center"}>
                   <Text textAlign={"center"} bold fontSize={"16"}>
+                    Role
+                  </Text>
+                </Box>
+                <Box flex={"1"} alignItems={"center"}>
+                  <Text textAlign={"center"} bold fontSize={"16"}>
                     Aksi
                   </Text>
                 </Box>
@@ -132,7 +137,12 @@ export default function TabelUser() {
                     Jl. Kaliurang, Yogyakarta
                   </Text>
                 </Box>
-                <HStack flex={"1"} alignItems={"center"} space={"1"}>
+                <Box flex={"1"}>
+                  <Text textAlign={"center"} fontSize={"14"}>
+                    Admin
+                  </Text>
+                </Box>
+                <VStack flex={"1"} alignItems={"center"} space={"1"}>
                   <Pressable
                     _pressed={{ opacity: 0.5 }}
                     bgColor={"green.900"}
@@ -155,7 +165,7 @@ export default function TabelUser() {
                       Hapus
                     </Text>
                   </Pressable>
-                </HStack>
+                </VStack>
               </HStack>
               <HStack space={"4"} alignItems={"center"}>
                 <Box flex={"1"}>
@@ -168,7 +178,12 @@ export default function TabelUser() {
                     Jl. Kaliurang, Yogyakarta
                   </Text>
                 </Box>
-                <HStack flex={"1"} alignItems={"center"} space={"1"}>
+                <Box flex={"1"}>
+                  <Text textAlign={"center"} fontSize={"14"}>
+                    Admin
+                  </Text>
+                </Box>
+                <VStack flex={"1"} alignItems={"center"} space={"1"}>
                   <Pressable
                     _pressed={{ opacity: 0.5 }}
                     bgColor={"green.900"}
@@ -191,7 +206,7 @@ export default function TabelUser() {
                       Hapus
                     </Text>
                   </Pressable>
-                </HStack>
+                </VStack>
               </HStack>
               <HStack space={"4"} alignItems={"center"}>
                 <Box flex={"1"}>
@@ -204,7 +219,12 @@ export default function TabelUser() {
                     Jl. Kaliurang, Yogyakarta
                   </Text>
                 </Box>
-                <HStack flex={"1"} alignItems={"center"} space={"1"}>
+                <Box flex={"1"}>
+                  <Text textAlign={"center"} fontSize={"14"}>
+                    Admin
+                  </Text>
+                </Box>
+                <VStack flex={"1"} alignItems={"center"} space={"1"}>
                   <Pressable
                     _pressed={{ opacity: 0.5 }}
                     bgColor={"green.900"}
@@ -227,44 +247,9 @@ export default function TabelUser() {
                       Hapus
                     </Text>
                   </Pressable>
-                </HStack>
+                </VStack>
               </HStack>
-              <HStack space={"4"} alignItems={"center"}>
-                <Box flex={"1"}>
-                  <Text textAlign={"center"} fontSize={"14"}>
-                    Karyn
-                  </Text>
-                </Box>
-                <Box flex={"1"}>
-                  <Text textAlign={"center"} fontSize={"14"}>
-                    Jl. Kaliurang, Yogyakarta
-                  </Text>
-                </Box>
-                <HStack flex={"1"} alignItems={"center"} space={"1"}>
-                  <Pressable
-                    _pressed={{ opacity: 0.5 }}
-                    bgColor={"green.900"}
-                    px={"2"}
-                    py={"1"}
-                    rounded={"8"}
-                  >
-                    <Text bold fontSize={"14"} color={"white"}>
-                      Edit
-                    </Text>
-                  </Pressable>
-                  <Pressable
-                    _pressed={{ opacity: 0.5 }}
-                    bgColor={"red.900"}
-                    px={"2"}
-                    py={"1"}
-                    rounded={"8"}
-                  >
-                    <Text bold fontSize={"14"} color={"white"}>
-                      Hapus
-                    </Text>
-                  </Pressable>
-                </HStack>
-              </HStack>
+              
             </VStack>
           </Box>
         </ScrollView>
