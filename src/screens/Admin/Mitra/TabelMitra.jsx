@@ -49,7 +49,7 @@ const statusBarHeight = RNStatusBar.currentHeight;
 //   },
 // });
 
-export default function TabelUser() {
+export default function TabelMitra() {
   return (
     <Box backgroundColor={"green.900"} flex={"1"}>
       <StatusBar barStyle="dark-content" />
@@ -73,7 +73,7 @@ export default function TabelUser() {
           </Box>
           <Spacer />
           <Text bold fontSize={"20"} color={"white"}>
-            Data Tantangan
+            Data Mitra
           </Text>
           <Spacer />
           <Pressable _pressed={{ opacity: 0.5 }}>
