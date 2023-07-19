@@ -11,7 +11,12 @@ import HomeUser from "./src/screens/Home/HomeUser"
 import HomeAdmin from "./src/screens/Home/HomeAdmin"
 import Login from "./src/screens/LoginRegister/Login"
 import Register from "./src/screens/LoginRegister/Register"
-import PilihTantangan from "./src/screens/User/Tantangan/PilihTantangan"
+import Tantangan from "./src/screens/User/Tantangan/DetailTantangan"
+import Berita from "./src/screens/User/Berita/KumpulanBerita"
+import Reward from "./src/screens/User/Reward/RiwayatReward"
+import Pickup from "./src/screens/Mitra/Pickup/RiwayatPickup"
+import Validasi from "./src/screens/Admin/Validasi/DetailValidasi"
+import AdminUser from "./src/screens/Admin/User/TabelUser"
 
 export default function App() {
   return (
@@ -45,7 +50,12 @@ export default function App() {
       {/* <HomeMitra /> */}
       {/* <HomeAdmin /> */}
       {/* <HomeUser /> */}
-      <PilihTantangan/>
+      {/* <Pickup/> */}
+      {/* <Tantangan/> */}
+      {/* <Berita/> */}
+      {/* <Reward/> */}
+      <AdminUser/>
+      {/* <Validasi/> */}
       {/* <Login /> */}
       {/* <Register /> */}
       {/* Sampai Sini */}
