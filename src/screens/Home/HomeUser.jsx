@@ -46,7 +46,7 @@ const statusBarHeight = RNStatusBar.currentHeight;
 //   },
 // });
 
-export default function Home() {
+export default function HomeUser({navigation}) {
   const toast = useToast();
   const [showOverlay, setShowOverlay] = React.useState(false);
 
@@ -54,7 +54,7 @@ export default function Home() {
   return (
     <ScrollView>
       <Box backgroundColor={"green.900"}>
-        <StatusBar barStyle="dark-content" />
+        <StatusBar barStyle="light-content" />
         {/* <View style={styles.NavContainer}>
         <View style={styles.NavBar}>
           <Pressable onPress={() => navigation.navigate("home")} style={styles.IconBehave}>
@@ -68,7 +68,7 @@ export default function Home() {
           rounded="3xl"
           shadow={"5"}
           style={{ paddingTop: statusBarHeight + 4 }}
-          mt="-12"
+          mt="-4"
           py={2}
         >
           <HStack ml={5} mr={5} justifyContent="space-between">
@@ -123,7 +123,9 @@ export default function Home() {
 
               <TouchableOpacity onPress={() => navigation.navigate("profile")}>
                 <Avatar
-                  source={require("../../../assets/images/home/rachel.png")}
+                  source={require("../../../assets/images/home/rachel.png")
+                
+                }
                 />
               </TouchableOpacity>
             </HStack>
@@ -182,6 +184,7 @@ export default function Home() {
               <Image
                 source={require("../../../assets/images/onboarding/1.jpg")}
                 resizeMode="contain"
+                alt="Foto Carousel"
                 w="full"
                 flex={1}
               />
@@ -190,7 +193,9 @@ export default function Home() {
 
           <Box mx={6}>
             <HStack>
-              <HalfButton>Join a Challenge</HalfButton>
+              <HalfButton onPress={
+                ()=> navigation.navigate("tantangan")
+                }>Join a Challenge</HalfButton>
               <Spacer />
               <HalfButton>Reward</HalfButton>
             </HStack>

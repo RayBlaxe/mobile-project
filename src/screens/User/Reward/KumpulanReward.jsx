@@ -91,7 +91,7 @@ export default function Home() {
         </HStack>
       </Box>
       <Box mx={"6"}>
-        <Box w={"full"} bgColor={"white"} rounded={"15"} px={"4"} py={"2"}>
+        <Box w={"full"} bgColor={"white"} rounded={"15"} px={"4"} py={"4"}>
           <HStack>
             <VStack>
               <HStack space={"1"} alignItems={"center"}>
@@ -109,6 +109,15 @@ export default function Home() {
                 215 Pts
               </Text>
             </VStack>
+            <Spacer/>
+            <Box bgColor={"green.900"} rounded={"2xl"} justifyContent={"center"} px={"2"}>
+              <HStack alignItems={"center"}>
+              <Image tintColor={"white"} source={require("../../../../assets/icons/history.png")} alt="history" w={"8"} h={"7"} />
+              <Text bold fontSize={"18"} color={"white"} p={"2"}>
+                Riwayat
+              </Text>
+              </HStack>
+            </Box>
           </HStack>
         </Box>
       </Box>

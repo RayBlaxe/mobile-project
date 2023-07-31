@@ -27,18 +27,18 @@ import {
   Dimensions,
 } from "react-native";
 
-const TabelUser = ({ navigation }) => {
-  const [users, setUsers] = useState([]);
+const Tabelartikel = ({ navigation }) => {
+  const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const url = "http://192.168.1.7:8000/api/artikel";
-  const deleteUser = (id) => {
+  const deleteArtikel = (id) => {
     fetch(url + "/" + id, {
       method: "DELETE",
     })
       .then((response) => response.json())
       .then((json) => {
         Alert.alert("Berhasil", json.message);
-        showUser();
+        showArtikel();
       })
       .catch((error) => {
         console.error(error);
@@ -46,22 +46,26 @@ const TabelUser = ({ navigation }) => {
   };
 
   const confirmDelete = (id) => {
-    Alert.alert("Hapus User", "Apakah anda yakin ingin menghapus user ini?", [
-      {
-        text: "Batal",
-        onPress: () => console.log("Cancel Pressed"),
-        style: "cancel",
-      },
-      { text: "Hapus", onPress: () => deleteUser(id) },
-    ]);
+    Alert.alert(
+      "Hapus Artikel",
+      "Apakah anda yakin ingin menghapus artikel ini?",
+      [
+        {
+          text: "Batal",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel",
+        },
+        { text: "Hapus", onPress: () => deleteArtikel(id) },
+      ]
+    );
   };
   useEffect(() => {
-    showUser();
+    showArtikel();
   }, []);
-  const showUser = () => {
+  const showArtikel = () => {
     fetch(url)
       .then((response) => response.json())
-      .then((json) => setUsers(json.data))
+      .then((json) => setArticles(json.data))
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
   };
@@ -94,12 +98,12 @@ const TabelUser = ({ navigation }) => {
           </Pressable>
           <Spacer />
           <Text bold fontSize={"20"} color={"white"}>
-            Data User
+            Data artikel
           </Text>
           <Spacer />
           <Pressable
             _pressed={{ opacity: 0.5 }}
-            onPress={() => navigation.navigate("tambahuser")}
+            onPress={() => navigation.navigate("TambahArtikel")}
           >
             <Icon
               size="8"
@@ -128,22 +132,22 @@ const TabelUser = ({ navigation }) => {
             <HStack space={"4"} alignItems={"center"}>
               <Box flex={"1"}>
                 <Text textAlign={"center"} bold fontSize={"14"}>
-                  Nama
+                  Gambar
                 </Text>
               </Box>
               <Box flex={"1"}>
                 <Text textAlign={"center"} bold fontSize={"14"}>
-                  Email
+                  Judul Artikel
                 </Text>
               </Box>
               <Box flex={"1"}>
                 <Text textAlign={"center"} bold fontSize={"14"}>
-                  Role
+                  Isi Artikel
                 </Text>
               </Box>
               <Box flex={"1"}>
                 <Text textAlign={"center"} bold fontSize={"14"}>
-                  Lokasi
+                  Link Artikel
                 </Text>
               </Box>
 
@@ -156,31 +160,33 @@ const TabelUser = ({ navigation }) => {
             <Divider />
 
             <ScrollView flex={"1"}>
-              {users.map((user) => (
+              {articles.map((article) => (
                 <HStack
-                  key={user.id}
+                  key={article.id}
                   space={"4"}
                   alignItems={"center"}
                   my={"2"}
                 >
                   <Box flex={"1"} alignItems={"center"}>
+                    <Image
+                      size={"10"}
+                      source={{ uri: article.image }}
+                      alt="Gambar"
+                    />
+                  </Box>
+                  <Box flex={"1"}>
                     <Text textAlign={"center"} fontSize={"14"}>
-                      {user.username}
+                      {article.judul}
                     </Text>
                   </Box>
                   <Box flex={"1"}>
                     <Text textAlign={"center"} fontSize={"14"}>
-                      {user.email}
-                    </Text>
-                  </Box>
-                  <Box flex={"1"}>
-                    <Text textAlign={"center"} fontSize={"14"}>
-                      {user.role}
+                      {article.isi}
                     </Text>
                   </Box>
                   <Box flex={"1"}>
                     <Text textAlign={"center"} fontSize={"12"}>
-                      {user.lokasi}
+                      {article.link}
                     </Text>
                   </Box>
                   <VStack flex={"1"} alignItems={"center"} space={"1"}>
@@ -190,6 +196,7 @@ const TabelUser = ({ navigation }) => {
                       px={"2"}
                       py={"1"}
                       rounded={"8"}
+                      onPress={() => navigation.navigate("EditArtikel", { id: article.id })}
                     >
                       <Text bold fontSize={"14"} color={"white"}>
                         Edit
@@ -201,7 +208,7 @@ const TabelUser = ({ navigation }) => {
                       px={"2"}
                       py={"1"}
                       rounded={"8"}
-                      onPress={() => confirmDelete(user.id)}
+                      onPress={() => confirmDelete(article.id)}
                     >
                       <Text bold fontSize={"14"} color={"white"}>
                         Hapus
@@ -217,4 +224,4 @@ const TabelUser = ({ navigation }) => {
     </Box>
   );
 };
-export default TabelUser;
+export default Tabelartikel;

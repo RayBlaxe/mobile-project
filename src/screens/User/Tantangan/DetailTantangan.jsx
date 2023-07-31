@@ -46,7 +46,21 @@ const statusBarHeight = RNStatusBar.currentHeight;
 //   },
 // });
 
-export default function Home() {
+export default function DetailTantangan({navigation}) {
+  const onSubmit = () => {
+    Alert.alert(
+      "Pilih Tantangan",
+      "Pilih Tantangan Berhasil",
+      [
+        {
+          text: "OK",
+          onPress: navigation.goBack(),
+        },
+      ],
+      { cancelable: false }
+    );
+  };
+  
   return (
     <Box backgroundColor={"green.900"} flex={"1"}>
       <StatusBar barStyle="dark-content" />
@@ -138,7 +152,7 @@ export default function Home() {
               color={"gray.500"}
               maxW={"48"}
             >
-              10 poin
+              20 poin
             </Text>
           </HStack>
           <HStack mx={"4"} mt={"4"} alignItems={"flex-start"}>
@@ -166,6 +180,7 @@ export default function Home() {
             px={"2"}
             rounded={"16"}
             _pressed={{ opacity: 0.5 }}
+            onPress={() => navigation.goBack()}
           >
             <Center>
               <Text bold>Back</Text>
@@ -179,6 +194,7 @@ export default function Home() {
             px={"2"}
             rounded={"16"}
             _pressed={{ opacity: 0.5 }}
+            onPress={onSubmit}
           >
             <Center>
               <Text bold>Accept</Text>

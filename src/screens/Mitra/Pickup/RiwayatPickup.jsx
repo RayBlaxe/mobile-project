@@ -49,7 +49,7 @@ const statusBarHeight = RNStatusBar.currentHeight;
 //   },
 // });
 
-export default function RewardPickup() {
+export default function RiawayatPickup({ navigation}) {
   return (
     <Box backgroundColor={"green.900"} flex={"1"}>
       <StatusBar barStyle="dark-content" />
@@ -68,9 +68,13 @@ export default function RewardPickup() {
           alignItems={"center"}
           justifyContent={"center"}
         >
-          <Box tintColor={"white"}>
-            <ChevronLeftIcon color="white" />
-          </Box>
+          <Pressable
+              tintColor={"white"}
+              _pressed={{ opacity: 0.5 }}
+              onPress={() => navigation.goBack()}
+            >
+              <ChevronLeftIcon color="white" />
+            </Pressable>
           <Spacer />
           <Text bold fontSize={"20"} color={"white"}>
             Riwayat Pick Up

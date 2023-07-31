@@ -45,7 +45,7 @@ const statusBarHeight = RNStatusBar.currentHeight;
 //   },
 // });
 
-export default function Home() {
+export default function PilihTantangan({navigation}) {
   return (
     <Box backgroundColor={"green.900"} flex={"1"}>
       <StatusBar barStyle="dark-content" />
@@ -125,6 +125,7 @@ export default function Home() {
                 bgColor={"#375F56"}
                 rounded={"15"}
                 shadow={3}
+                onPress={()=> navigation.navigate("detailtantangan")}
               >
                 <HStack space={4} alignItems={"center"} flex={"2"}>
                   <Box flex={"0.8"}>

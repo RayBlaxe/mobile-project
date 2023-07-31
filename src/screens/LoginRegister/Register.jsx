@@ -19,7 +19,7 @@ import { Select } from "native-base";
 import NavBar from "../../lib/components/Navbar";
 import HalfButton from "../../lib/components/Home/HalfButton";
 
-export default function Home() {
+export default function Home({navigation}) {
   return (
     <Center w="100%">
       <StatusBar barStyle="light-content" />
@@ -97,17 +97,7 @@ export default function Home() {
               <Select.Item label="User" value="user" />
               <Select.Item label="Partner" value="partner" />
             </Select>
-            <Link
-              _text={{
-                fontSize: "xs",
-                fontWeight: "500",
-                color: "#6fa956",
-              }}
-              alignSelf="center"
-              mt="2"
-            >
-              Forget Password?
-            </Link>
+            
           </FormControl>
 
           <Button mt="1" colorScheme={"emerald"}>
@@ -129,7 +119,7 @@ export default function Home() {
                 fontWeight: "medium",
                 fontSize: "sm",
               }}
-              href="#"
+              onPress={() => navigation.goBack()}
             >
               Sign In
             </Link>

@@ -45,7 +45,22 @@ const statusBarHeight = RNStatusBar.currentHeight;
 //   },
 // });
 
-export default function DetailPickup() {
+export default function DetailPickup({navigation}) {
+  const onPickUp = () => {
+    Alert.alert(
+      "Pick Up",
+      "Pick Up Berhasil",
+      [
+        {
+          text: "OK",
+          onPress: navigation.goBack(),
+        },
+      ],
+      { cancelable: false }
+    );
+
+  };
+  
   return (
     <Box backgroundColor={"green.900"} flex={"1"}>
       <StatusBar barStyle="dark-content" />
@@ -64,9 +79,13 @@ export default function DetailPickup() {
             alignItems={"center"}
             justifyContent={"center"}
           >
-            <Box tintColor={"white"}>
+            <Pressable
+              tintColor={"white"}
+              _pressed={{ opacity: 0.5 }}
+              onPress={() => navigation.goBack()}
+            >
               <ChevronLeftIcon color="white" />
-            </Box>
+            </Pressable>
             <Spacer />
             <Text bold fontSize={"20"} color={"white"}>
               Detail Pick Up
@@ -112,7 +131,7 @@ export default function DetailPickup() {
                   <Text fontSize={"14"}>Jumlah</Text>
                   <Spacer />
                   <Text textAlign={"right"} fontSize={"14"}>
-                    5 Kg
+                    25 Kg
                   </Text>
                 </HStack>
                 <HStack alignItems={"flex-start"}>
@@ -141,7 +160,7 @@ export default function DetailPickup() {
                 h={"full"}
               />
             </Box>
-            <Pressable _pressed={{opacity:0.5}} rounded={"8"} bgColor={"white"} w={"full"} py={"2"}>
+            <Pressable _pressed={{opacity:0.5}} rounded={"8"} bgColor={"white"} w={"full"} py={"2"} onPress={onPickUp}>
                 <Text bold textAlign={"center"} fontSize={"16"}>
                   Pick Up
                 </Text>

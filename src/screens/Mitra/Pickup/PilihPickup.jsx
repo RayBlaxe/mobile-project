@@ -45,7 +45,7 @@ const statusBarHeight = RNStatusBar.currentHeight;
 //   },
 // });
 
-export default function Home() {
+export default function PilihPickup({ navigation }) {
   return (
     <Box backgroundColor={"green.900"} flex={"1"}>
       <StatusBar barStyle="dark-content" />
@@ -64,9 +64,13 @@ export default function Home() {
             alignItems={"center"}
             justifyContent={"center"}
           >
-            <Box tintColor={"white"}>
+            <Pressable
+              tintColor={"white"}
+              _pressed={{ opacity: 0.5 }}
+              onPress={() => navigation.goBack()}
+            >
               <ChevronLeftIcon color="white" />
-            </Box>
+            </Pressable>
             <Spacer />
             <Text bold fontSize={"20"} color={"white"}>
               Daftar Pick Up
@@ -170,6 +174,7 @@ export default function Home() {
                       py={"2"}
                       px={"6"}
                       rounded={"10"}
+                      onPress={() => navigation.navigate("detailpickup")}
                     >
                       <Text bold fontSize={"16"} color={"white"}>
                         Pick Up

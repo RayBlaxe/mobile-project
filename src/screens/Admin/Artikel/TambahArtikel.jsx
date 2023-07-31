@@ -20,7 +20,8 @@ import {
   Divider,
   useToast,
 } from "native-base";
-
+import NavBar from "../../../lib/components/Navbar";
+import TabBar from "../../../lib/components/TabBar";
 import {
   Alert,
   BackHandler,
@@ -28,6 +29,8 @@ import {
   TouchableOpacity,
   Dimensions,
 } from "react-native";
+import { launchCamera, launchImageLibrary } from "react-native-image-picker";
+import * as ImagePicker from "expo-image-picker";
 const windowWidth = Dimensions.get("window").width;
 
 // You can also use as a promise without 'callback':
@@ -41,25 +44,19 @@ function BuildingAFormExample({ navigation }) {
     const errors = {};
 
     if (!formData.name || formData.name.length < 3) {
-      errors.name = "Mohon isi Nama (minimal 3 karakter)";
+      errors.name = "Mohon isi Judul Artikel (minimal 3 karakter)";
     }
 
-    if (!formData.email) {
-      errors.email = "Mohon isi Email";
-    }
-    if (!formData.password || formData.password.length < 6) {
-      errors.password = "Mohon isi Password (minimal 6 karakter)";
+    if (!formData.linkArtikel) {
+      errors.linkArtikel = "Mohon isi link artikel";
     }
 
-    if (!formData.role) {
-      errors.role = "Mohon isi role";
+    if (!formData.isiArtikel) {
+      errors.isiArtikel = "Mohon isi materi artikel";
     }
 
-    if (!formData.lokasi) {
-      errors.lokasi = "Mohon isi lokasi";
-    }
-    if (!formData.tgl_lahir) {
-      errors.tgl_lahir = "Mohon isi Tanggal lahir";
+    if (!image) {
+      errors.fotoArtikel = "Mohon pilih foto artikel";
     }
 
     setErrors(errors);
@@ -72,13 +69,16 @@ function BuildingAFormExample({ navigation }) {
     if (validate()) {
       const form = new FormData();
 
-      form.append("username", formData.name);
-      form.append("email", formData.email);
-      form.append("password", formData.password);
-      form.append("role", formData.role);
-      form.append("point", 0);
-      form.append("lokasi", formData.lokasi);
-      form.append("tgl_lahir", formData.tgl_lahir);
+      form.append("judul", formData.name);
+      form.append("link", formData.linkArtikel);
+      form.append("isi", formData.isiArtikel);
+      form.append("admin_id", 8);
+
+      form.append("image", {
+        uri: image,
+        type: "image/jpeg",
+        name: "fotoArtikel",
+      });
 
       console.log(form);
 
@@ -98,6 +98,7 @@ function BuildingAFormExample({ navigation }) {
             duration: 3000,
           });
           navigation.goBack();
+          
         })
         .catch((error) => {
           console.error(error);
@@ -105,6 +106,22 @@ function BuildingAFormExample({ navigation }) {
       console.log("Submitted");
     } else {
       console.log("Validation Failed");
+    }
+  };
+  const [image, setImage] = useState(null);
+  const pickImage = async () => {
+    // No permissions request is necessary for launching the image library
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 0.5,
+    });
+
+    console.log(result);
+
+    if (!result.canceled) {
+      setImage(result.assets[0].uri);
     }
   };
 
@@ -116,100 +133,97 @@ function BuildingAFormExample({ navigation }) {
             bold: true,
           }}
         >
-          Nama user
+          Judul Artikel
         </FormControl.Label>
         <Input
-          placeholder="Masukkan nama "
+          placeholder="Masukkan judul "
           onChangeText={(value) => setData({ ...formData, name: value })}
         />
         {"name" in errors ? (
           <FormControl.ErrorMessage>{errors.name}</FormControl.ErrorMessage>
         ) : null}
       </FormControl>
-      <FormControl isRequired isInvalid={"email" in errors}>
+      <FormControl isRequired isInvalid={"linkArtikel" in errors}>
         <FormControl.Label
           _text={{
             bold: true,
           }}
         >
-          Email
+          Link Artikel
         </FormControl.Label>
         <Input
-          placeholder="Masukkan email"
-          onChangeText={(value) => setData({ ...formData, email: value })}
+          placeholder="Masukkan link artikel"
+          onChangeText={(value) => setData({ ...formData, linkArtikel: value })}
         />
-        {"email" in errors ? (
-          <FormControl.ErrorMessage>{errors.email}</FormControl.ErrorMessage>
-        ) : null}
-      </FormControl>
-      <FormControl isRequired isInvalid={"password" in errors}>
-        <FormControl.Label
-          _text={{
-            bold: true,
-          }}
-        >
-          Password
-        </FormControl.Label>
-        <Input
-          type="password"
-          placeholder="Masukkan password"
-          onChangeText={(value) => setData({ ...formData, password: value })}
-        />
-        {"password" in errors ? (
-          <FormControl.ErrorMessage>{errors.password}</FormControl.ErrorMessage>
-        ) : null}
-      </FormControl>
-      <FormControl isRequired isInvalid={"role" in errors}>
-        <FormControl.Label
-          _text={{
-            bold: true,
-          }}
-        >
-          Role user
-        </FormControl.Label>
-        <Input
-          placeholder="Masukkan role user"
-          onChangeText={(value) => setData({ ...formData, role: value })}
-        />
-        {"role" in errors ? (
-          <FormControl.ErrorMessage>{errors.role}</FormControl.ErrorMessage>
-        ) : null}
-      </FormControl>
-      <FormControl isRequired isInvalid={"lokasi" in errors}>
-        <FormControl.Label
-          _text={{
-            bold: true,
-          }}
-        >
-          Lokasi
-        </FormControl.Label>
-        <Input
-          placeholder="Masukkan lokasi user"
-          onChangeText={(value) => setData({ ...formData, lokasi: value })}
-        />
-        {"lokasi" in errors ? (
-          <FormControl.ErrorMessage>{errors.lokasi}</FormControl.ErrorMessage>
-        ) : null}
-      </FormControl>
-      <FormControl isRequired isInvalid={"tgl_lahir" in errors}>
-        <FormControl.Label
-          _text={{
-            bold: true,
-          }}
-        >
-          Tanggal Lahir
-        </FormControl.Label>
-        <Input
-          placeholder="Masukkan Tanggal lahir user"
-          onChangeText={(value) => setData({ ...formData, tgl_lahir: value })}
-        />
-        {"tgl_lahir" in errors ? (
+        {"linkArtikel" in errors ? (
           <FormControl.ErrorMessage>
-            {errors.tgl_lahir}
+            {errors.linkArtikel}
+          </FormControl.ErrorMessage>
+        ) : null}
+      </FormControl>
+      <FormControl isRequired isInvalid={"isiArtikel" in errors}>
+        <FormControl.Label
+          _text={{
+            bold: true,
+          }}
+        >
+          Isi Artikel
+        </FormControl.Label>
+        <Input
+          placeholder="Masukkan isi artikel"
+          onChangeText={(value) => setData({ ...formData, isiArtikel: value })}
+        />
+        {"isiArtikel" in errors ? (
+          <FormControl.ErrorMessage>
+            {errors.isiArtikel}
+          </FormControl.ErrorMessage>
+        ) : null}
+      </FormControl>
+      <FormControl isRequired isInvalid={"fotoArtikel" in errors}>
+        <FormControl.Label
+          _text={{
+            bold: true,
+          }}
+        >
+          Foto Artikel
+        </FormControl.Label>
+        <Pressable
+          rounded={"4"}
+          borderColor={"gray.300"}
+          borderWidth={"1"}
+          onPress={pickImage}
+          _pressed={{ opacity: 0.5 }}
+        >
+          <HStack alignItems={"center"} space={"2"}>
+            <Text ml={"2"} color={"gray.400"} fontSize={"12"}>
+              Tambah Foto
+            </Text>
+            <Spacer />
+            <Box rounded={"4"} bgColor={"green.900"} size={"12"} padding={"2"}>
+              <Image
+                source={require("../../../../assets/icons/plus.png")}
+                alt="Logo tambah"
+                size={"8"}
+                tintColor={"white"}
+              />
+            </Box>
+          </HStack>
+        </Pressable>
+        {"fotoArtikel" in errors ? (
+          <FormControl.ErrorMessage>
+            {errors.fotoArtikel}
           </FormControl.ErrorMessage>
         ) : null}
       </FormControl>
 
+      {image && (
+        <Image
+          mt={"4"}
+          source={{ uri: image }}
+          style={{ width: 200, height: 200 }}
+          alt="Foto artikel"
+        />
+      )}
       <Button
         _pressed={{ opacity: 0.5 }}
         onPress={onSubmit}
@@ -222,7 +236,7 @@ function BuildingAFormExample({ navigation }) {
   );
 }
 
-export default function TambahUser({ navigation }) {
+export default function TambahArtikel({ navigation }) {
   return (
     <Box bgColor={"green.900"} w={"full"} h={"full"}>
       <StatusBar barStyle="dark-content" />
@@ -245,7 +259,7 @@ export default function TambahUser({ navigation }) {
           </Pressable>
 
           <Text bold fontSize={"20"} color={"white"} alignItems={"center"}>
-            Tambah User
+            Tambah Artikel
           </Text>
         </HStack>
       </Box>

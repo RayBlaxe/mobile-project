@@ -72,7 +72,7 @@ export default function Home() {
             </Box>
             <Spacer />
             <Text bold fontSize={"20"} color={"white"}>
-              Berita & Informasi
+              Artikel
             </Text>
             <Spacer />
             <Pressable _pressed={{ opacity: 0.5 }}>

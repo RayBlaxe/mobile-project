@@ -13,6 +13,7 @@ import {
   Pressable,
   Image,
   View,
+  ScrollView,
 } from "native-base";
 import NavBar from "../../lib/components/Navbar";
 import TabBar from "../../lib/components/TabBar";
@@ -42,10 +43,10 @@ const statusBarHeight = RNStatusBar.currentHeight;
 //   },
 // });
 
-export default function Home() {
+export default function HomeMitra({navigation}) {
   return (
-    <Box backgroundColor={"green.900"}>
-      <StatusBar barStyle="dark-content" />
+    <Box backgroundColor={"green.900"} h={"full"}>
+      <StatusBar barStyle="light-content" />
       {/* <View style={styles.NavContainer}>
         <View style={styles.NavBar}>
           <Pressable onPress={() => navigation.navigate("home")} style={styles.IconBehave}>
@@ -59,7 +60,7 @@ export default function Home() {
         rounded="3xl"
         shadow={"5"}
         style={{ paddingTop: statusBarHeight + 4 }}
-        mt="-12"
+        mt="-6"
         // pb={2}
       >
         <HStack ml={5} mr={5} justifyContent="space-between">
@@ -118,147 +119,153 @@ export default function Home() {
           </HStack>
         </HStack>
       </Box>
-      <Box backgroundColor={"white"} mt={12} rounded={"3xl"}>
-        <Box ml={"4"} mt={2}>
-          <Text fontSize={"24"} bold>
-            Kategori
-          </Text>
-        </Box>
-        <Box mx={6}>
-          <VStack>
-            <HStack
-              mb="2.5"
-              mt="1.5"
-              space={2}
-              mx={{
-                base: "auto",
-                md: "0",
-              }}
-            >
-              <Pressable
-                position="relative"
-                bgColor={"gray.400"}
-                rounded={"md"}
-                justifyContent="center"
-                _pressed={{ opacity: 0.5 }}
-                mr={4}
-                w={"140px"}
-                h={"140px"}
+      <Box backgroundColor={"white"} mt={12} roundedTop={"3xl"} flex={"1"}>
+          <Box ml={"4"} mt={2}>
+            <Text fontSize={"24"} bold>
+              Kategori
+            </Text>
+          </Box>
+        <ScrollView>
+          <Box mx={6}>
+            <VStack>
+              <HStack
+                mb="2.5"
+                mt="1.5"
+                space={2}
+                mx={{
+                  base: "auto",
+                  md: "0",
+                }}
               >
-                <VStack ml={4} justifyContent={"flex-end"}>
-                  <Image
-                    w="30%"
-                    h="45%"
-                    source={require("../../../assets/icons/sampah.png")}
-                    alt="gambar sungai"
-                  />
-                  <Text fontSize="20" color="black" bold mt="2">
-                    Sampah
-                  </Text>
-                </VStack>
-              </Pressable>
-              <Pressable
-                position="relative"
-                bgColor={"gray.400"}
-                rounded={"md"}
-                justifyContent="center"
-                _pressed={{ opacity: 0.5 }}
-                mr={4}
-                w={"140px"}
-                h={"140px"}
-              >
-                <VStack ml={4} justifyContent={"flex-end"}>
-                  <Image
-                    w="40%"
-                    h="45%"
-                    source={require("../../../assets/icons/user.png")}
-                    alt="gambar sungai"
-                  />
-                  <Text fontSize="20" color="black" bold mt="2">
-                    Profil
-                  </Text>
-                </VStack>
-              </Pressable>
-            </HStack>
-            <HStack
-              mb="2.5"
-              mt="1.5"
-              space={2}
-              mx={{
-                base: "auto",
-                md: "0",
-              }}
-            >
-              <Pressable
-                position="relative"
-                bgColor={"gray.400"}
-                rounded={"md"}
-                justifyContent="center"
-                _pressed={{ opacity: 0.5 }}
-                mr={4}
-                w={"140px"}
-                h={"140px"}
-              >
-                <VStack ml={4} justifyContent={"flex-end"}>
-                  <Image
-                    w="40%"
-                    h="45%"
-                    source={require("../../../assets/icons/Settings.png")}
-                    alt="gambar sungai"
-                  />
-                  <Text fontSize="20" color="black" bold mt="2">
-                    Pengaturan
-                  </Text>
-                </VStack>
-              </Pressable>
-              <Pressable
-                position="relative"
-                bgColor={"gray.400"}
-                rounded={"md"}
-                justifyContent="center"
-                _pressed={{ opacity: 0.5 }}
-                mr={4}
-                w={"140px"}
-                h={"140px"}
-              >
-                <VStack ml={4} justifyContent={"flex-end"}>
-                  <Image
-                    w="40%"
-                    h="45%"
-                    source={require("../../../assets/icons/history.png")}
-                    alt="gambar sungai"
-                  />
-                  <Text fontSize="20" color="black" bold mt="2">
-                    Riwayat
-                  </Text>
-                </VStack>
-              </Pressable>
-            </HStack>
-          </VStack>
-        </Box>
-        <Box mx={"4"} mt={2}>
-          <Text fontSize={"24"} bold>
-            Dashboard
-          </Text>
-          <Box alignItems={"center"} mt={4}>
-            <Box
-              bgColor={"white"}
-              shadow={"3"}
-              w={80}
-              h={"64"}
-              alignItems={"center"}
-            >
-              <HStack alignItems={"flex-end"} space={10}>
-                <Box h={48} w={4} bgColor={"gray.600"} rounded={"lg"}></Box>
-                <Box h={20} w={4} bgColor={"gray.600"} rounded={"lg"}></Box>
-                <Box h={16} w={4} bgColor={"gray.600"} rounded={"lg"}></Box>
-                <Box h={32} w={4} bgColor={"gray.600"} rounded={"lg"}></Box>
-                <Box h={36} w={4} bgColor={"gray.600"} rounded={"lg"}></Box>
-                <Box h={24} w={4} bgColor={"gray.600"} rounded={"lg"}></Box>
+                <Pressable
+                  position="relative"
+                  bgColor={"gray.400"}
+                  rounded={"md"}
+                  justifyContent="center"
+                  _pressed={{ opacity: 0.5 }}
+                  mr={4}
+                  w={"140px"}
+                  h={"140px"}
+                  onPress={() => navigation.navigate("pickup")}
+                >
+                  <VStack ml={4} justifyContent={"flex-end"}>
+                    <Image
+                      w="30%"
+                      h="45%"
+                      source={require("../../../assets/icons/sampah.png")}
+                      alt="gambar sungai"
+                    />
+                    <Text fontSize="20" color="black" bold mt="2">
+                      Sampah
+                    </Text>
+                  </VStack>
+                </Pressable>
+                <Pressable
+                  position="relative"
+                  bgColor={"gray.400"}
+                  rounded={"md"}
+                  justifyContent="center"
+                  _pressed={{ opacity: 0.5 }}
+                  mr={4}
+                  w={"140px"}
+                  h={"140px"}
+                  onPress={() => navigation.navigate("profile")}
+
+                >
+                  <VStack ml={4} justifyContent={"flex-end"}>
+                    <Image
+                      w="40%"
+                      h="45%"
+                      source={require("../../../assets/icons/user.png")}
+                      alt="gambar sungai"
+                    />
+                    <Text fontSize="20" color="black" bold mt="2">
+                      Profil
+                    </Text>
+                  </VStack>
+                </Pressable>
               </HStack>
+              <HStack
+                mb="2.5"
+                mt="1.5"
+                space={2}
+                mx={{
+                  base: "auto",
+                  md: "0",
+                }}
+              >
+                <Pressable
+                  position="relative"
+                  bgColor={"gray.400"}
+                  rounded={"md"}
+                  justifyContent="center"
+                  _pressed={{ opacity: 0.5 }}
+                  mr={4}
+                  w={"140px"}
+                  h={"140px"}
+                >
+                  <VStack ml={4} justifyContent={"flex-end"}>
+                    <Image
+                      w="40%"
+                      h="45%"
+                      source={require("../../../assets/icons/Settings.png")}
+                      alt="gambar sungai"
+                    />
+                    <Text fontSize="20" color="black" bold mt="2">
+                      Pengaturan
+                    </Text>
+                  </VStack>
+                </Pressable>
+                <Pressable
+                  position="relative"
+                  bgColor={"gray.400"}
+                  rounded={"md"}
+                  justifyContent="center"
+                  _pressed={{ opacity: 0.5 }}
+                  mr={4}
+                  w={"140px"}
+                  h={"140px"}
+                  onPress={() => navigation.navigate("riwayat")}
+                >
+                  <VStack ml={4} justifyContent={"flex-end"}>
+                    <Image
+                      w="40%"
+                      h="45%"
+                      source={require("../../../assets/icons/history.png")}
+                      alt="gambar sungai"
+                    />
+                    <Text fontSize="20" color="black" bold mt="2">
+                      Riwayat
+                    </Text>
+                  </VStack>
+                </Pressable>
+              </HStack>
+            </VStack>
+          </Box>
+          <Box mx={"4"} mt={2}>
+            <Text fontSize={"24"} bold>
+              Dashboard
+            </Text>
+            <Box alignItems={"center"} mt={4}>
+              <Box
+                bgColor={"white"}
+                shadow={"3"}
+                w={80}
+                h={"64"}
+                alignItems={"center"}
+              >
+                <HStack alignItems={"flex-end"} space={10}>
+                  <Box h={48} w={4} bgColor={"gray.600"} rounded={"lg"}></Box>
+                  <Box h={20} w={4} bgColor={"gray.600"} rounded={"lg"}></Box>
+                  <Box h={16} w={4} bgColor={"gray.600"} rounded={"lg"}></Box>
+                  <Box h={32} w={4} bgColor={"gray.600"} rounded={"lg"}></Box>
+                  <Box h={36} w={4} bgColor={"gray.600"} rounded={"lg"}></Box>
+                  <Box h={24} w={4} bgColor={"gray.600"} rounded={"lg"}></Box>
+                </HStack>
+              </Box>
             </Box>
           </Box>
-        </Box>
+        </ScrollView>
       </Box>
     </Box>
   );
